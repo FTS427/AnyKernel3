@@ -15,7 +15,7 @@ device.name2=
 device.name3=
 device.name4=
 device.name5=
-supported.versions=
+supported.versions=10
 supported.patchlevels=
 supported.vendorpatchlevels=
 '; } # end properties
@@ -23,10 +23,6 @@ supported.vendorpatchlevels=
 
 ### AnyKernel install
 ## boot files attributes
-boot_attributes() {
-set_perm_recursive 0 0 755 644 $ramdisk/*;
-set_perm_recursive 0 0 750 750 $ramdisk/init* $ramdisk/sbin;
-} # end attributes
 
 # boot shell variables
 block=boot;
@@ -38,8 +34,8 @@ patch_vbmeta_flag=auto;
 . tools/ak3-core.sh;
 
 # boot install
-dump_boot; # use split_boot to skip ramdisk unpack, e.g. for devices with init_boot ramdisk
+split_boot; # use split_boot to skip ramdisk unpack, e.g. for devices with init_boot ramdisk
 
-write_boot; # use flash_boot to skip ramdisk repack, e.g. for devices with init_boot ramdisk
+flash_boot; # use flash_boot to skip ramdisk repack, e.g. for devices with init_boot ramdisk
 ## end boot install
 
