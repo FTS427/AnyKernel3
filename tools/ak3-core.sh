@@ -913,7 +913,7 @@ setup_ak() {
 
   # clean up any template placeholder files
   cd $AKHOME;
-  rm -f modules/system/vendor/lib/modules/placeholder patch/placeholder ramdisk/placeholder;
+  rm -f modules/vendor/lib/modules/placeholder patch/placeholder ramdisk/placeholder;
   rmdir -p modules patch ramdisk 2>/dev/null;
 
   # automate simple multi-partition setup for hdr_v4 boot + init_boot + vendor_kernel_boot
